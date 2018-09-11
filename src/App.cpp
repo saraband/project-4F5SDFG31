@@ -15,7 +15,7 @@ App::~App()
 
 App* App::getInstance()
 {
-    if(!myInstance) {
+    if (!myInstance) {
         myInstance = new App;
     }
 
@@ -24,11 +24,11 @@ App* App::getInstance()
 
 int App::launch()
 {
-    myWindow.create(sf::VideoMode(800, 600, 32), "project-4F5SDFG31");
+    myWindow.create(sf::VideoMode(1200, 850, 32), "project-4F5SDFG31");
     myWindow.setFramerateLimit(60);
 
-    while(myScreen != Screen::Exit) {
-        switch(myScreen) {
+    while (myScreen != Screen::Exit) {
+        switch (myScreen) {
             case Screen::MainMenu:
                 mainMenuFunction();
                 break;
@@ -41,16 +41,20 @@ int App::launch()
 
 void App::mainMenuFunction()
 {
-    while(myScreen == Screen::MainMenu) {
+    AssetManager* manager = AssetManager::getInstance();
+    sf::Sprite sprite(manager->texture(Texture::Test));
+
+    while (myScreen == Screen::MainMenu) {
         sf::Event event;
-        while(myWindow.pollEvent(event)) {
-            if(event.type == sf::Event::Closed
+        while (myWindow.pollEvent(event)) {
+            if (event.type == sf::Event::Closed
             || (event.type == sf::Event::KeyPressed
             && event.key.code == sf::Keyboard::Escape))
                 myScreen = Screen::Exit;
         }
 
         myWindow.clear();
+        myWindow.draw(sprite);
         myWindow.display();
     }
 }

@@ -3,7 +3,9 @@
 */
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "ScreenType.hpp"
+#include "AssetManager.hpp"
 
 #ifndef APP_HPP
 #define APP_HPP
@@ -19,7 +21,7 @@ class App
         void mainMenuFunction();
         static App*         myInstance;
         sf::RenderWindow    myWindow;
-		Screen::Type		myScreen;
+        Screen::Type		myScreen;
 };
 
 #endif
