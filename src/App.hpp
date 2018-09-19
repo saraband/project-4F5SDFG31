@@ -6,6 +6,8 @@
 #include <iostream>
 #include "ScreenType.hpp"
 #include "AssetManager.hpp"
+#include "ui/Manager.hpp"
+#include "ui/Button.hpp"
 
 #ifndef APP_HPP
 #define APP_HPP
@@ -19,9 +21,9 @@ class App
     private:
         App();
         void mainMenuFunction();
-        static App*         myInstance;
-        sf::RenderWindow    myWindow;
-        Screen::Type		myScreen;
+        static App*         m_instance;
+        sf::RenderWindow    m_window;
+        Screen::Type		m_screen;
 };
 
 #endif

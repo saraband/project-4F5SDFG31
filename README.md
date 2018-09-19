@@ -4,3 +4,4 @@
 
 * [SFML 2.5.0](https://www.sfml-dev.org/)
 * [SFML VSCode boilerplate](https://github.com/andrew-r-king/sfml-vscode-boilerplate)
+* [RapidXML](http://rapidxml.sourceforge.net/)

@@ -35,11 +35,11 @@ class AssetManager
         const sf::Font& font(Font::Type type) const;
     private:
         AssetManager();
-        static AssetManager*    myInstance;
-        sf::Font*               myFonts[Font::Count];
-        sf::Texture*            myTextures[Texture::Count];
-        std::string             myFontPaths[Font::Count];
-        std::string             myTexturePaths[Texture::Count];
+        static AssetManager*    m_instance;
+        sf::Font*               m_fonts[Font::Count];
+        sf::Texture*            m_textures[Texture::Count];
+        std::string             m_fontPaths[Font::Count];
+        std::string             m_texturePaths[Texture::Count];
 };
 
 #endif

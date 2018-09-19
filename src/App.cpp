@@ -1,9 +1,9 @@
 #include "App.hpp"
 
-App* App::myInstance = nullptr;
+App* App::m_instance = nullptr;
 
 App::App()
-    : myScreen  (Screen::MainMenu)
+    : m_screen  (Screen::MainMenu)
 {
 
 }
@@ -15,46 +15,54 @@ App::~App()
 
 App* App::getInstance()
 {
-    if (!myInstance) {
-        myInstance = new App;
+    if (!m_instance) {
+        m_instance = new App;
     }
 
-    return myInstance;
+    return m_instance;
 }
 
 int App::launch()
 {
-    myWindow.create(sf::VideoMode(1200, 850, 32), "project-4F5SDFG31");
-    myWindow.setFramerateLimit(60);
+    m_window.create(sf::VideoMode(1200, 850, 32), "project-4F5SDFG31");
+    m_window.setFramerateLimit(60);
 
-    while (myScreen != Screen::Exit) {
-        switch (myScreen) {
+    while (m_screen != Screen::Exit) {
+        switch (m_screen) {
             case Screen::MainMenu:
                 mainMenuFunction();
                 break;
         }
     }
 
-    myWindow.close();
+    m_window.close();
     return EXIT_SUCCESS;
 }
 
 void App::mainMenuFunction()
 {
-    AssetManager* manager = AssetManager::getInstance();
-    sf::Sprite sprite(manager->texture(Texture::Test));
+    ui::Button button("Hello world", sf::FloatRect(50, 50, 50, 50));
+    button.bindEvent(ui::Event::Click, [](){
+        std::cout << "Click !" << std::endl;
+    });
+    ui::Manager manager(m_window);
+    manager.addElement(&button);
 
-    while (myScreen == Screen::MainMenu) {
+    while (m_screen == Screen::MainMenu) {
         sf::Event event;
-        while (myWindow.pollEvent(event)) {
-            if (event.type == sf::Event::Closed
-            || (event.type == sf::Event::KeyPressed
-            && event.key.code == sf::Keyboard::Escape))
-                myScreen = Screen::Exit;
+        while (m_window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                m_screen = Screen::Exit;
+            else if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Escape)
+                    m_screen = Screen::Exit;
+            }
+
+            manager.processEvent(event);
         }
 
-        myWindow.clear();
-        myWindow.draw(sprite);
-        myWindow.display();
+        m_window.clear();
+        manager.draw(m_window);
+        m_window.display();
     }
 }
