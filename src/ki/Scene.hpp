@@ -1,5 +1,5 @@
-#ifndef WORLD_HPP
-#define WORLD_HPP
+#ifndef KI_WORLD_HPP
+#define KI_WORLD_HPP
 
 #include <list>
 #include "Entity.hpp"

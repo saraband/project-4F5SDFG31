@@ -1,5 +1,5 @@
-#ifndef ENTITY_HPP
-#define ENTITY_HPP
+#ifndef KI_ENTITY_HPP
+#define KI_ENTITY_HPP
 
 #include <SFML/Graphics.hpp>
 

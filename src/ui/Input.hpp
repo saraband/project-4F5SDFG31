@@ -1,5 +1,5 @@
-#ifndef INPUT_HPP
-#define INPUT_HPP
+#ifndef UI_INPUT_HPP
+#define ui_INPUT_HPP
 
 #include <string>
 #include "Element.hpp"

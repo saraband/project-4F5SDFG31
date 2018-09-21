@@ -1,5 +1,5 @@
-#ifndef COLLISION_HPP
-#define COLLISION_HPP
+#ifndef KI_COLLISION_HPP
+#define KI_COLLISION_HPP
 
 #include <SFML/Graphics.hpp>
 
