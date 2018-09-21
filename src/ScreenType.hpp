@@ -1,5 +1,4 @@
-/*
-**  Types of screen encountered throughout
+/*  Types of screen encountered throughout
 **  the game
 */
 

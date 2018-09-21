@@ -1,5 +1,4 @@
-/*
-**  App Singleton
+/*  App Singleton
 */
 
 #include <SFML/Graphics.hpp>
@@ -8,6 +7,7 @@
 #include "AssetManager.hpp"
 #include "ui/Manager.hpp"
 #include "ui/Button.hpp"
+#include "VideoInfo.hpp"
 
 #ifndef APP_HPP
 #define APP_HPP
@@ -24,6 +24,8 @@ class App
         static App*         m_instance;
         sf::RenderWindow    m_window;
         Screen::Type		m_screen;
+        VideoInfo           m_videoInfo;
+        bool                m_showVideoInfo;
 };
 
 #endif

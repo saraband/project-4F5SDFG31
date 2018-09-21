@@ -12,8 +12,9 @@ class Button : public Element
     public:
         Button(const std::string& label, const sf::FloatRect& bounds, int zIndex = -1);
         virtual ~Button();
-    private:
-        virtual void evolve();
+    protected:
+        virtual const char* type() const;
+        virtual void update();
         virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const;
         sf::RectangleShape  m_sprite;
         sf::Font            m_font;

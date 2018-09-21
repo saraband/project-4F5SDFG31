@@ -5,7 +5,7 @@ namespace ui
 int Element::m_zIndexCounter = 0;
 
 Element::Element(const sf::FloatRect& bounds, int zIndex)
-    : m_zIndex      (m_zIndexCounter++)
+    : m_zIndex      (zIndex < 0 ? m_zIndexCounter++ : zIndex)
     , m_bounds      (bounds)
     , m_onClick     ([](){})
     , m_onKeyPress  ([](){})

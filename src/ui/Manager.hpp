@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Element.hpp"
 
@@ -19,6 +20,7 @@ class Manager
     private:
         sf::RenderWindow&       m_window;
         std::vector<Element*>   m_elements;
+        Element*                m_activeElement;
 };
 }
 

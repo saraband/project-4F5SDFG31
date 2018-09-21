@@ -2,6 +2,7 @@
 #define UI_ELEMENT_HPP
 
 #include <functional>
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Event.hpp"
 
@@ -22,8 +23,8 @@ class Element : public sf::Drawable, public sf::Transformable
         std::function<void()>      m_onClick;
         std::function<void()>      m_onKeyPress;
         std::function<void()>      m_onResize;
-    private:
-        virtual void evolve() = 0;
+        virtual void update() = 0;
+        virtual const char* type() const = 0;
         virtual void draw(sf::RenderTarget& window, sf::RenderStates states) const = 0;
 };
 }
