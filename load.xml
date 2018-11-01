@@ -1,0 +1,7 @@
+<root>
+    <parent attribute="value">
+        <child>This is a text node</child>
+        <child>This is a text node</child>
+        <child>This is a text node</child>
+    </parent>
+</root>

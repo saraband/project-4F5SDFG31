@@ -22,6 +22,7 @@ class Document
         Node* root() const;
     private:
         Node*   m_root;
+        bool isWhiteSpace(char c) const;
 };
 }
 

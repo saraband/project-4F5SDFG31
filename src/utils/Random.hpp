@@ -2,6 +2,7 @@
 #define RANDOM_HPP
 
 #include <ctime>
+#include <random>
 
 template<typename T>
 T random(T min, T max)

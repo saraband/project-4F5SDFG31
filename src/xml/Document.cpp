@@ -20,8 +20,54 @@ Document::~Document()
     destroy();
 }
 
+bool Document::isWhiteSpace(char c) const
+{
+    if (c == '\t' ||
+        c == '\r' ||
+        c == '\n' ||
+        c == ' ')
+        return true;
+    return false;
+}
+
 bool Document::loadFromFile(const std::string& filename)
 {
+    destroy();
+
+    std::ifstream file(filename);
+
+    if (!file) {
+        std::cerr << "Unable to load file '" << filename << "'" << std::endl;
+        return false;
+    }
+
+    char c;
+    int line = 0;
+    int linePos = 0;
+    bool isInsideTag = false;
+    bool shouldTrimSpace = true;
+
+    while (file.get(c)) {
+        // INSIDE TAG
+        if (isInsideTag) {
+
+        // OUTSIDE TAG
+        } else {
+            // Trim white spaces
+            if (!isWhiteSpace(c)) {
+
+            }
+        }
+
+        // Updating line & linePos
+        ++linePos;
+        if (c == '\n') {
+            ++line;
+            linePos = 0;
+        }
+    }
+
+    file.close();
     return true;
 }
 
@@ -58,8 +104,10 @@ bool Document::saveToFile(const std::string& filename) const
 
 void Document::destroy()
 {
-    if (m_root)
+    if (m_root) {
         delete m_root;
+        m_root = nullptr;
+    }
 }
 
 void Document::dump() const

@@ -13,8 +13,9 @@ int main(int argc, char** argv)
         ->appendSibling(new xml::Node(xml::NODE, "Child2"))
         ->appendSibling(new xml::Node(xml::NODE, "Child3"));
 
-    doc.dump();
+    //doc.dump();
     doc.saveToFile("save.xml");
+    doc.loadFromFile("load.xml");
     return 0;
 	//return App::getInstance()->launch();
 }
